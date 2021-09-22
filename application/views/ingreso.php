@@ -36,7 +36,7 @@
                 if (!empty($mensaje)) {
               ?>
                 <div class="alert alert-danger">
-                 El nombre se usuario se encuentra registrado
+                 El nombre de usuario no se encuentra registrado
                </div>
               <?php } ?>
               <form class="pt-3" method="post" action="<?php echo base_url();?>usuario/ingresar">
