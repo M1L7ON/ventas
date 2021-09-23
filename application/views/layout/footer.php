@@ -31,6 +31,17 @@
   <!-- End custom js for this page-->
   <!-- Custom js for this page-->
   <script src="<?php echo base_url();?>assets/js/data-table.js"></script>
+  <script src="<?php echo base_url();?>assets/assets/js/file-upload.js"></script>
+  <script src="<?php echo base_url();?>assets/js/typeahead.js"></script>
   <script src="<?php echo base_url();?>assets/js/select2.js"></script>
+  <!-- Custom js for this page-->
+  <script src="<?php echo base_url();?>assets/js/formpickers.js"></script>
+  <script src="<?php echo base_url();?>assets/js/form-addons.js"></script>
+  <script src="<?php echo base_url();?>assets/js/x-editable.js"></script>
+  <script src="<?php echo base_url();?>assets/js/dropify.js"></script>
+  <script src="<?php echo base_url();?>assets/js/dropzone.js"></script>
+  <script src="<?php echo base_url();?>assets/js/jquery-file-upload.js"></script>
+  <script src="<?php echo base_url();?>assets/js/formpickers.js"></script>
+  <script src="<?php echo base_url();?>assets/js/form-repeater.js"></script>
 </body>
 </html>

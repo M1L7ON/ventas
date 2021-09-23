@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/css/vendor.bundle.addons.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/iconfonts/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/iconfonts/font-awesome/css/all.min.css" />
   <link rel="stylesheet" href="<?php echo base_url();?>assets/vendors/iconfonts/simple-line-icon/css/simple-line-icons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
@@ -86,8 +85,8 @@
             </a>
             <div class="collapse" id="page-layouts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/boxed-layout.html">Categorías</a></li>
-                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Productos</a></li>
+                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url();?>categoria">Categorías</a></li>
+                <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="<?php echo base_url();?>producto">Productos</a></li>
               </ul>
             </div>
           </li>
@@ -99,8 +98,8 @@
             </a>
             <div class="collapse" id="sidebar-layouts">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/layout/compact-menu.html">Proveedores</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/layout/sidebar-collapsed.html">Compras</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url();?>proveedor">Proveedores</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url();?>compras/insert">Compras</a></li>
               </ul>
             </div>
           </li>
@@ -112,7 +111,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/accordions.html">Clientes</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url();?>cliente">Clientes</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Ventas</a></li>
               </ul>
               </div>
@@ -125,7 +124,7 @@
             </a>
             <div class="collapse" id="ui-advanced">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dragula.html">Lista Usuarios</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url();?>Usuario">Lista Usuarios</a></li>
               </ul>
             </div>
           </li>
