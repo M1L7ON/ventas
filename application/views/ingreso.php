@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="col-lg-6 register-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; <?php echo date('Y'); ?>  Derechos reservados.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Creadores Informaticos &copy; <?php echo date('Y'); ?>  Derechos reservados para Sytem Solutions.</p>
           </div>
         </div>
       </div>
