@@ -7,9 +7,9 @@
       </h3>
       <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-	            <li class="breadcrumb-item"><a href="<?php echo site_url('welcome'); ?>">Inicio</a></li>
-	            <li class="breadcrumb-item"><a href="<?php echo site_url('usuario'); ?>">Lista Usuarios</a></li>
-	            <li class="breadcrumb-item active" aria-current="page">Nuevo Usuario</li>
+	            <li class="breadcrumb-item"><a href="<?php echo base_url().'welcome'; ?>">Inicio</a></li>
+	            <li class="breadcrumb-item"><a href="<?php echo base_url().'categoria'; ?>">Lista Categorías</a></li>
+	            <li class="breadcrumb-item active" aria-current="page">Editar Categoría</li>
             </ol>
       </nav>
     </div>
