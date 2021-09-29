@@ -1,5 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+/**
+ * Categoria Controller.
+ *
+ * @author Ronald Torrez
+ * @version 1.0
+ */
 class Categoria extends CI_Controller{
     function __construct()
     {
@@ -8,7 +14,10 @@ class Categoria extends CI_Controller{
         require_once  APPPATH.'controllers/PDF_MC_Table.php';
     } 
 
-
+    /**
+     * Index direcciona a la vista categorias index .
+     * 
+     */
     function index()
     {
         $data['categoria'] = $this->Categoria_model->getAllCategoria();      
@@ -16,6 +25,10 @@ class Categoria extends CI_Controller{
         $this->load->view('categorias/index',$data);
         $this->load->view('layout/footer');
     }
+    /**
+     * Insert direcciona a la vista categorias Add .
+     * 
+     */
 
     function insert()
     {
@@ -23,6 +36,10 @@ class Categoria extends CI_Controller{
         $this->load->view('categorias/add');
         $this->load->view('layout/footer');
     }
+     /**
+     * editar direcciona a la vista categorias data .
+     * 
+     */
 
     function editar($idcategoria)
     {
@@ -32,6 +49,10 @@ class Categoria extends CI_Controller{
         $this->load->view('layout/footer');
     }
 
+     /**
+     * GuardarDB manda al modelo addCategoria los datos a guardar.
+     * 
+     */
     function guardarDB()
     {   
         $this->formValidation();
@@ -52,6 +73,10 @@ class Categoria extends CI_Controller{
             $this->load->view('layout/footer');
         }
     }  
+     /**
+     * editarDB busca mediante el idcategoria los datos a editar.
+     * 
+     */
 
 
     function editarDB()
@@ -78,7 +103,11 @@ class Categoria extends CI_Controller{
 		        $this->load->view('layout/footer');
             }
         
-    } 
+    }
+     /**
+     * Cambia de estado una categoria de activo a inactivo o viceversa
+     * 
+     */ 
 
 
     function cambiarEstado($idcategoria,$activo)
@@ -91,13 +120,21 @@ class Categoria extends CI_Controller{
             redirect('categoria/index');
     }
 
+    /**
+     * formValidation.
+     * 
+     */
     public function formValidation()
     {
       	$this->load->library('form_validation');
 		$this->form_validation->set_rules('nombre','Nombre','required|max_length[50]|alpha');
-		$this->form_validation->set_rules('descripcion','Descripcion','max_length[200]');
+		$this->form_validation->set_rules('descripcion','Descripcion','required|max_length[200]');
     }
 
+    /**
+     * reporteCategoria Genera el reporte.
+     * 
+     */
     public function reporteCategoria()
     {
         $data = $this->Categoria_model->getCategoriasReporte();     
