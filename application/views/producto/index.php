@@ -3,10 +3,12 @@
     <div class="page-header">
         <div class="pull-right">
                     <a href="<?php echo base_url(); ?>producto/insert" class="btn btn-success">Nuevo Producto</a> 
+                    <a href="<?php echo base_url();?>producto/reporteProducto" target="_blank" class="btn btn-info">
+                    <span class="fa fa-print" aria-hidden="true"></span> Imprimir Lista</a>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo site_url('welcome'); ?>">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url().'welcome'; ?>">Inicio</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Lista Productos</li>
             </ol>
         </nav>
@@ -42,7 +44,7 @@
                             <td><?php echo $row['nombre']; ?></td>
                             <td><?php echo $row['stock']; ?></td>
                             <td><?php echo $row['descuento']; ?></td>
-                            <td><img src="<?php echo base_url().'/fotos/productos/'.$row['imagen'];?>"></td>
+                            <td><img src="<?php echo base_url().'fotos/productos/'.$row['imagen'];?>"></td>
                             
                             <td>
                                 <?php 
@@ -67,7 +69,7 @@
                                     </button>
                                      <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
                                          <li>
-                                             <a href="<?php echo base_url().'prodcuto/editar'.$row['idarticulo']; ?>"
+                                             <a href="<?php echo base_url().'producto/editar/'.$row['idarticulo']; ?>"
                                                 title="Modificar informacion" onClick="">
                                                 &nbsp <i style="color:#555;" class="fa fa-edit"></i> Modificar
                                              </a>
@@ -76,14 +78,14 @@
                                             <?php 
                                             if ($row['condicion']==1) {
                                             ?>
-                                            <a href="<?php echo base_url().'prodcuto/cambiarEstado/'.$row['idarticulo'].'/0'; ?>" >
+                                            <a href="<?php echo base_url().'producto/cambiarEstado/'.$row['idarticulo'].'/0'; ?>" >
                                                 &nbsp <i style="color:red;" class="fa fa-exclamation-triangle"></i> Inactivo
                                             </a>
                                             <?php
                                                 }else{
                                             ?>
-                                            <a href="<?php echo base_url().'prodcuto/cambiarEstado/'.$row['idcategoria'].'/1'; ?>">
-                                                &nbsp <i style="color:blue;" class="fa fa-exclamation-triangle"></i> Activo
+                                            <a href="<?php echo base_url().'producto/cambiarEstado/'.$row['idarticulo'].'/1'; ?>" >
+                                                &nbsp <i style="color:red;" class="fa fa-exclamation-triangle"></i> Activo
                                             </a>
                                             <?php 
                                             }
