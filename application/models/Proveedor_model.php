@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
- 
+
+/**
+ * Clase Proveedor_model
+ *
+ * @autor Moises Patzi
+ * @version 1.0
+ */
 class Proveedor_model extends CI_Model
 {
     function __construct()
@@ -8,7 +14,11 @@ class Proveedor_model extends CI_Model
         parent::__construct();
     }
     
-
+    /**
+     * GetProveedor.
+     * @param $idpersona Id del proveedor.
+     * @return row_array con datos de un proveedor.
+     */
     function getProveedor($idpersona)
     {
         $this->db->where('idpersona', $idpersona);

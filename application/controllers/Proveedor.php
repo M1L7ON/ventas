@@ -1,7 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Clase Proveedor Controller
+ *
+ * @autor Moises Patzi
+ * @version 1.0
+ */
 class Proveedor extends CI_Controller{
+
+    /**
+     * Constructor Proveedor
+     */
     function __construct()
     {
         parent::__construct();
@@ -9,7 +19,9 @@ class Proveedor extends CI_Controller{
         require_once  APPPATH.'controllers/PDF_MC_Table.php';
     } 
 
-
+    /**
+     * index Envia a la vista header,index y footer.
+     */
     function index()
     {
         $data['cliente'] = $this->Proveedor_model->getAllCliente();
@@ -19,6 +31,9 @@ class Proveedor extends CI_Controller{
         $this->load->view('layout/footer');
     }
 
+    /**
+     * Insert inicia la vista header add y footer para prooveedor.
+     */
     function insert()
     {
         $this->load->view('layout/header');
