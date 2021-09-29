@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
  
 class Proveedor_model extends CI_Model
 {
@@ -8,20 +9,21 @@ class Proveedor_model extends CI_Model
     }
     
 
-    function getCliente($idcliente)
+    function getProveedor($idpersona)
     {
-        return $this->db->get_where('persona',array('idpersona'=>$idpersona))->row_array();
+        $this->db->where('idpersona', $idpersona);
+        return $this->db->get('persona')->row_array();
     }
     
 
-    function get_allcliente_count()
+    function getAllClienteCount()
     {
         $this->db->from('persona');
         return $this->db->count_all_results();
     }
         
 
-    function get_allcliente()
+    function getAllCliente()
     {
         $this->db->order_by('idpersona', 'desc');       
         $this->db->where('tipo_persona', 'Proveedor');  
@@ -29,14 +31,14 @@ class Proveedor_model extends CI_Model
     }
         
 
-    function addcliente($params)
+    function addCliente($params)
     {
         $this->db->insert('persona',$params);
         return $this->db->insert_id();
     }
     
 
-    function updatecliente($idcliente,$params)
+    function updateCliente($idcliente,$params)
     {
         $this->db->where('idpersona',$idcliente);
         return $this->db->update('persona',$params);
@@ -46,6 +48,16 @@ class Proveedor_model extends CI_Model
     {
         $this->db->where('idpersona',$idcliente);
         return $this->db->update('persona',$params);
+    }
+
+    public function getProveedorReporte(){
+        $this->db->select('idpersona, nombre, direccion, telefono, email');
+        $this->db->from('persona');
+        $this->db->Where('tipo_persona','Proveedor');
+        $this->db->order_by('nombre','asc');
+
+        $r = $this->db->get();
+        return $r->result();
     }
 }
 
