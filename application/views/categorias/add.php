@@ -7,8 +7,8 @@
       </h3>
       <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-	            <li class="breadcrumb-item"><a href="<?php echo site_url('welcome'); ?>">Inicio</a></li>
-	            <li class="breadcrumb-item"><a href="<?php echo site_url('usuario'); ?>">Lista Usuarios</a></li>
+	            <li class="breadcrumb-item"><a href="<?php echo base_url().'welcome'; ?>">Inicio</a></li>
+	            <li class="breadcrumb-item"><a href="<?php echo base_url().'categoria'; ?>">Lista Categorias</a></li>
 	            <li class="breadcrumb-item active" aria-current="page">Nueva Categoría</li>
             </ol>
       </nav>
@@ -26,21 +26,21 @@
     				<div class="form-group row">
                     <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nombre</label>
                       <div class="col-sm-4">
-                        <input type="text" class="form-control" name="nombre" placeholder="Nombre Categoría">
+                        <input type="text" class="form-control" name="nombre" value="<?php echo $this->input->post('nombre'); ?>">
                         <span class="text-danger"><?php echo form_error('nombre');?></span>
                       </div>
                     </div>
                     <div class="form-group row">
                     <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Descripción Categoría</label>
                       <div class="col-sm-5">
-                        <input type="text" class="form-control" name="descripcion" placeholder="Descripción Categoría">
+                        <input type="text" class="form-control" name="descripcion" value="<?php echo $this->input->post('descripcion'); ?>">
                         <span class="text-danger"><?php echo form_error('descripcion');?></span>
                       </div>
                     </div>
 
 
                     <button type="submit" class="btn btn-primary mr-2">Guardar</button>
-                    <a href="<?php echo site_url('categoria'); ?>" class="btn btn-light">Cancelar</a>
+                    <a href="<?php echo base_url().'categoria'; ?>" class="btn btn-light">Cancelar</a>
     		<?php echo form_close(); ?>
       	</div>
     </div>

@@ -3,11 +3,13 @@
   <div class="content-wrapper">
   	<div class="page-header">
   		<div class="pull-right">
-					<a href="<?php echo site_url('categoria/insert'); ?>" class="btn btn-success">Nueva categoria</a> 
+					<a href="<?php echo site_url('categoria/insert'); ?>" class="btn btn-success"><span class="fa fa-plus-circle" aria-hidden="true"></span> Nueva categoría</a> 
+                    <a href="<?php echo base_url();?>categoria/reporteCategoria" target="_blank" class="btn btn-info">
+                    <span class="fa fa-print" aria-hidden="true"></span> Imprimir Lista</a>
 		</div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo site_url('welcome'); ?>">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url().'welcome'; ?>">Inicio</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Lista categorias</li>
             </ol>
         </nav>
