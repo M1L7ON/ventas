@@ -21,7 +21,7 @@ class Usuario extends CI_Controller{
     function insert()
     {   
         $this->load->view('layout/header');
-        $this->load->view('usuario/insert');
+        $this->load->view('usuario/add');
         $this->load->view('layout/footer');
     }  
 
