@@ -63,13 +63,22 @@ class Usuario extends CI_Controller{
             $this->load->view('usuario/edit', $data);
             $this->load->view('layout/footer');
     }
+
+    public function perfil($idusuario)
+    {
+            $data['usuario'] = $this->Usuario_model->obtenerUsuario($idusuario);
+            $this->load->view('layout/header');
+            $this->load->view('usuario/perfil', $data);
+            $this->load->view('layout/footer');
+    }
+
     public function edit()
     {       
             $idusuario = $this->input->post('idUsuario');
             $this->formValidation();
 			if($this->form_validation->run())     
             {   
-                if ($this->Usuario_model->obtenerIdUsuario($this->input->post('login'))==$
+                if ($this->Usuario_model->obtenerIdUsuario($this->input->post('login'))!=$
                     $idusuario) {
 
                     $datos = $this->datos();
@@ -110,12 +119,12 @@ class Usuario extends CI_Controller{
     {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nombre','Nombre','required|max_length[50]');
-        $this->form_validation->set_rules('ci','CI','required|max_length[10]|numeric');
-        $this->form_validation->set_rules('direccion','Direccion','required|max_length[70]');
-        $this->form_validation->set_rules('telefono','Telefono','required|max_length[20]');
+        $this->form_validation->set_rules('nombre','Nombre','required|max_length[50]|alpha');
+        $this->form_validation->set_rules('ci','CI','required|max_length[10]|alpha_numeric');
+        $this->form_validation->set_rules('direccion','Direccion','required|max_length[150]|callback_address');
+        $this->form_validation->set_rules('telefono','Telefono','required|max_length[20]|numeric');
         $this->form_validation->set_rules('email','Email','required|max_length[50]|valid_email');
-        $this->form_validation->set_rules('cargo','Cargo','required|max_length[20]');
+        $this->form_validation->set_rules('cargo','Cargo','required|max_length[5]|');
         $this->form_validation->set_rules('login','Login','required|min_length[5]|max_length[20]');
         $this->form_validation->set_rules('clave','Clave','required|min_length[8]|max_length[64]');
         $this->form_validation->set_rules('rol','rol','required');
@@ -189,9 +198,9 @@ class Usuario extends CI_Controller{
         $psw = hash("SHA256",$this->input->post('contrasenia'));
         $res = $this->Usuario_model->ingresar($user,$psw);
         if ($res == 1){
-            redirect('Welcome/index');
+            redirect(base_url().'Welcome/index');
         }else{
-            $data['mensaje'] = "Usuario y/o contraseña incorrectos";
+            $data['mensaje'] = "Usuario y/o contraseña incorrectos o el usuario esta Inactivo";
             $this->load->view('ingreso',$data);
         }
     }
@@ -203,5 +212,25 @@ class Usuario extends CI_Controller{
       $this->session->set_userdata($usuario_data);
       $this->load->view('ingreso');
    }
+
+   /**
+     * Address metodo para validar direcciones en form Validation
+     * @param $str cadena o numero
+     * @return bool
+     */
+    public function address($str)
+    {
+
+        if (preg_match('/^[A-Z0-9áéíóú.# ]+$/i', $str))
+        {
+            return TRUE;
+        }
+        else
+        {
+            $this->form_validation->set_message('address', 'El campo {field} solo puede contener caracteres alfabéticos . y/o #  .');
+            return FALSE;
+        }
+    }
     
 }
+
