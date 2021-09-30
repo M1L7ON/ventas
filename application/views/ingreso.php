@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/register-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:54 GMT -->
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -29,14 +26,14 @@
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="<?php echo base_url();?>assets/images/logo.svg" alt="logo">
+                <img src="<?php echo base_url();?>fotos/logo.png" alt="logo">
               </div>
               <h4>Bienvenido</h4>
               <?php
                 if (!empty($mensaje)) {
               ?>
                 <div class="alert alert-danger">
-                 El nombre de usuario no se encuentra registrado
+                 <?php echo $mensaje; ?>
                </div>
               <?php } ?>
               <form class="pt-3" method="post" action="<?php echo base_url();?>usuario/ingresar">
@@ -69,7 +66,7 @@
             </div>
           </div>
           <div class="col-lg-6 register-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Creadores Informaticos &copy; <?php echo date('Y'); ?>  Derechos reservados para Sytem Solutions.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; <?php echo date('Y'); ?>  Derechos reservados.</p>
           </div>
         </div>
       </div>
@@ -90,7 +87,4 @@
   <script src="<?php echo base_url();?>assets/js/todolist.js"></script>
   <!-- endinject -->
 </body>
-
-
-<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/register-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:54 GMT -->
 </html>
