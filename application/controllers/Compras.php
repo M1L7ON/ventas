@@ -1,7 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Clase Compras Controller.
+ *
+ * @autor Oscar Perez
+ * @version 1.0
+ */
 class Compras extends CI_Controller{
+
+    /**
+     * Compras constructor.
+     */
     function __construct()
     {
         parent::__construct();
@@ -9,8 +19,13 @@ class Compras extends CI_Controller{
         $this->load->model('Proveedor_model');
         $this->load->model('Producto_model');
         require_once  APPPATH.'controllers/PDF_MC_Table.php';
-    } 
+    }
 
+    /**
+     * Index inicia la vista header index y footer para compras.
+     *//**
+     *
+     */
     function index()
     {
         $data['compras'] = $this->Compras_model->getAllCompras();
@@ -20,6 +35,9 @@ class Compras extends CI_Controller{
         $this->load->view('layout/footer');
     }
 
+    /**
+     * Insert inicia la vista header add y footer para compras.
+     */
     function insert()
     {
     	$data['proveedor'] = $this->Proveedor_model->getAllCliente();
@@ -30,14 +48,9 @@ class Compras extends CI_Controller{
         $this->load->view('layout/footer');
     }
 
-    function editar($idcliente)
-    {
-    	$data['cliente'] = $this->Compras_model->getCliente($idcliente);
-    	$this->load->view('layout/header');
-        $this->load->view('compras/edit',$data);
-        $this->load->view('layout/footer');
-    }
-
+    /**
+     * ReporteFechas inicia la vista header reporte y footer para compras.
+     */
     function reporteFechas()
     {
         $this->load->view('layout/header');
@@ -45,6 +58,9 @@ class Compras extends CI_Controller{
         $this->load->view('layout/footer');
     }
 
+    /**
+     * GuardarDB envia los datos a Compras_model para guardar datos.
+     */
     function guardarDB()
     {   
         $this->formValidation();
@@ -82,8 +98,12 @@ class Compras extends CI_Controller{
             $this->load->view('compras/add',$data);
             $this->load->view('layout/footer');
         }
-    }  
+    }
 
+    /**
+     * AnularCompra
+     * @param $anularCompra
+     */
     function anularCompra($anularCompra)
     {   
         $parametrosAnular = array(
@@ -91,8 +111,11 @@ class Compras extends CI_Controller{
         );
         $this->Compras_model->anularCompra($anularCompra,$parametrosAnular);
         redirect(base_url().'compras');
-    } 
+    }
 
+    /**
+     * @return array con los datos seteados de ingreso.
+     */
     function datosIngreso()
     {
         $cantidad = $this->input->post('cantidad');
@@ -113,6 +136,9 @@ class Compras extends CI_Controller{
         return $params;
     }
 
+    /**
+     * @return array con los datos seteados para detalle ingreso.
+     */
     function datosDetalleIngreso()
     {
         $params = array(
@@ -125,19 +151,9 @@ class Compras extends CI_Controller{
         return $params;
     }
 
-    function cambiarEstado($idcliente,$activo)
-    {
-   			$params = array(
-					'condicion' => $activo,
-           	);
-
-            $this->Compras_model->cambiarEstado($idcliente,$params);
-            $data['cliente'] = $this->Compras_model->get_allcliente();
-            $this->load->view('layout/header');
-            $this->load->view('compras/index',$data);
-            $this->load->view('layout/footer');
-    }
-
+    /**
+     * FormValidation setea los campos para ser validados.
+     */
     public function formValidation()
     {
       	$this->load->library('form_validation');
@@ -147,6 +163,9 @@ class Compras extends CI_Controller{
         $this->form_validation->set_rules('num_comprobante','Número de comprobante','required');
     }
 
+    /**
+     * NotaDeVenta genera el reporte de la compra en formato pdf.
+     */
     public function notaDeVenta($idingreso)
     {
         $data = $this->Compras_model->getNotaDeVenta($idingreso); 
@@ -276,6 +295,9 @@ class Compras extends CI_Controller{
         ///////////////////////// datos de la empresa ////////////////////////////////
     }
 
+    /**
+     * ReporteCompras genera el reporte de compras en formato pdf.
+     */
     public function reporteCompras()
     {
         $data = $this->Compras_model->getAllCompras();
@@ -328,6 +350,9 @@ class Compras extends CI_Controller{
         $this->pdf->Output("listacompras.pdf","I");
     }
 
+    /**
+     * GenerarReporte genera el reporte de compras por rango de fechas en formato pdf.
+     */
     public function generarReporte()
     {
         $de = $this->input->post('de');
