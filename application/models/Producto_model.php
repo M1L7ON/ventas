@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
  
 class Producto_model extends CI_Model
 {
@@ -13,30 +14,33 @@ class Producto_model extends CI_Model
         return $this->db->get_where('articulo',array('idarticulo'=>$idarticulo))->row_array();
     }
     
+    function getCodigo($codigo)
+    {
+        return $this->db->get_where('articulo',array('codigo'=>$codigo))->row_array();
+    }
 
-    function get_all_Producto_count()
+    function getAllProductoCount()
     {
         $this->db->from('articulo');
         return $this->db->count_all_results();
     }
         
 
-    function get_all_Producto()
+    function getAllProducto()
     {
         $this->db->order_by('idarticulo', 'desc');       
-        //$this->db->where('condicion', '1');  
         return $this->db->get('articulo')->result_array();
     }
         
 
-    function add_Producto($params)
+    function addProducto($params)
     {
         $this->db->insert('articulo',$params);
         return $this->db->insert_id();
     }
     
 
-    function update_Producto($idarticulo,$params)
+    function updateProducto($idarticulo,$params)
     {
         $this->db->where('idarticulo',$idarticulo);
         return $this->db->update('articulo',$params);
@@ -46,5 +50,14 @@ class Producto_model extends CI_Model
     {
         $this->db->where('idarticulo',$idarticulo);
         return $this->db->update('articulo',$params);
+    }
+
+    public function getProductoReporte(){
+        $this->db->select('idarticulo,idcategoria, codigo, nombre, stock, descuento, descripcion');
+        $this->db->from('articulo');
+        $this->db->order_by('nombre','asc');
+
+        $r = $this->db->get();
+        return $r->result();
     }
 }
