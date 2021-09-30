@@ -3,11 +3,14 @@
   <div class="content-wrapper">
     <div class="page-header">
         <div class="pull-right">
-                    <a href="<?php echo base_url(); ?>proveedor/insert" class="btn btn-success">Nuevo Proveedor</a> 
+                    <a href="<?php echo base_url(); ?>proveedor/insert" class="btn btn-success"><span class="fa fa-plus-circle" aria-hidden="true"></span> Nuevo Proveedor
+                    </a>
+                    <a href="<?php echo base_url();?>proveedor/reporteProveedor" target="_blank" class="btn btn-info">
+                    <span class="fa fa-print" aria-hidden="true"></span> Imprimir Lista</a> 
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo site_url('welcome'); ?>">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url().'welcome'; ?>">Inicio</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Lista Proveedor</li>
             </ol>
         </nav>
@@ -64,7 +67,7 @@
                                     </button>
                                      <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
                                          <li>
-                                             <a href="<?php echo base_url().'categoria/cliente/'.$row['idpersona']; ?>"
+                                             <a href="<?php echo base_url().'proveedor/editar/'.$row['idpersona']; ?>"
                                                 title="Modificar informacion" onClick="">
                                                 &nbsp <i style="color:#555;" class="fa fa-edit"></i> Modificar
                                              </a>
@@ -73,14 +76,14 @@
                                             <?php 
                                             if ($row['condicion']==1) {
                                             ?>
-                                            <a href="<?php echo base_url().'cliente/cambiarEstado/'.$row['idpersona'].'/0'; ?>" >
+                                            <a href="<?php echo base_url().'proveedor/edit/'.$row['idpersona'].'/0'; ?>" >
                                                 &nbsp <i style="color:red;" class="fa fa-exclamation-triangle"></i> Inactivo
                                             </a>
                                             <?php
                                                 }else{
                                             ?>
-                                            <a href="<?php echo base_url().'categoria/cambiarEstado/'.$row['idcategoria'].'/1'; ?>">
-                                                &nbsp <i style="color:blue;" class="fa fa-exclamation-triangle"></i> Activo
+                                            <a href="<?php echo base_url().'proveedor/cambiarEstado/'.$row['idpersona'].'/1'; ?>" >
+                                                &nbsp <i style="color:red;" class="fa fa-exclamation-triangle"></i> Activo
                                             </a>
                                             <?php 
                                             }
