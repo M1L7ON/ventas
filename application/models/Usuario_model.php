@@ -82,16 +82,16 @@ class Usuario_model extends CI_Model
         $this->db->WHERE('clave', $psw);
         $this->db->WHERE('estado', 1);
         $resultado = $this->db->get();
-        echo $resultado->num_rows();
+        //echo $resultado->num_rows();
         if ($resultado->num_rows() == 1) {
             $r = $resultado->row();
             $s_user = array(
+                's_idUsuario' => $r->idUsuario,
                 's_nombre' => $r->nombre,
-                's_nuevo' => $nuevo,
+                's_nuevo' => $r->nuevo,
                 's_cargo' => $r->cargo,
-                's_rol' => $rol,
-                's_foto' => $foto,
-                's_idUsuario' => $idUsuario,
+                's_rol' => $r->rol,
+                's_foto' => $r->foto,
                 's_logueado' => TRUE
             );
             $this->session->set_userdata($s_user);
