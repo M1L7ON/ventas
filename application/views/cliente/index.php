@@ -3,7 +3,9 @@
   <div class="content-wrapper">
     <div class="page-header">
         <div class="pull-right">
-                    <a href="<?php echo base_url(); ?>cliente/insert" class="btn btn-success">Nuevo Cliente</a> 
+                    <a href="<?php echo base_url(); ?>cliente/insert" class="btn btn-success"><span class="fa fa-plus-circle" aria-hidden="true"></span> Nuevo Cliente</a> 
+                    <a href="<?php echo base_url();?>cliente/reporteCliente" target="_blank" class="btn btn-info">
+                    <span class="fa fa-print" aria-hidden="true"></span> Imprimir Lista</a>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -64,7 +66,7 @@
                                     </button>
                                      <ul class="dropdown-menu pull-right" aria-labelledby="dropdownMenu1">
                                          <li>
-                                             <a href="<?php echo base_url().'categoria/cliente/'.$row['idpersona']; ?>"
+                                             <a href="<?php echo base_url().'cliente/editar/'.$row['idpersona']; ?>"
                                                 title="Modificar informacion" onClick="">
                                                 &nbsp <i style="color:#555;" class="fa fa-edit"></i> Modificar
                                              </a>
@@ -77,15 +79,12 @@
                                                 &nbsp <i style="color:red;" class="fa fa-exclamation-triangle"></i> Inactivo
                                             </a>
                                             <?php
-                                                }else{
+                                            }else{
                                             ?>
-                                            <a href="<?php echo base_url().'categoria/cambiarEstado/'.$row['idcategoria'].'/1'; ?>">
-                                                &nbsp <i style="color:blue;" class="fa fa-exclamation-triangle"></i> Activo
+                                           <a href="<?php echo base_url().'cliente/cambiarEstado/'.$row['idpersona'].'/1'; ?>" >
+                                                &nbsp <i style="color:red;" class="fa fa-exclamation-triangle"></i> Activo
                                             </a>
-                                            <?php 
-                                            }
-
-                                            ?>
+                                            <?php } ?>
                                          </li>
                                      </ul>
                                   </div>
