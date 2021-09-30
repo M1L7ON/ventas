@@ -119,7 +119,7 @@ class Usuario extends CI_Controller{
     {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('nombre','Nombre','required|max_length[50]|alpha');
+        $this->form_validation->set_rules('nombre','Nombre','required|max_length[50]');
         $this->form_validation->set_rules('ci','CI','required|max_length[10]|alpha_numeric');
         $this->form_validation->set_rules('direccion','Direccion','required|max_length[150]|callback_address');
         $this->form_validation->set_rules('telefono','Telefono','required|max_length[20]|numeric');

@@ -70,7 +70,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?php base_url();?>welcome">
+            <a class="nav-link" href="<?php echo base_url();?>welcome">
               <i class="fa fa-home menu-icon"></i>
               <span class="menu-title">Inicio</span>
             </a>
@@ -138,7 +138,7 @@
             </a>
             <div class="collapse" id="ui-advanced">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url();?>usuario/index">Lista Usuarios</a></li>
+                <li class="nav-item"> <a class="nav-link" href="<?php echo base_url();?>Usuario">Lista Usuarios</a></li>
               </ul>
             </div>
           </li>
