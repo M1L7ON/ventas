@@ -7,8 +7,8 @@
       </h3>
       <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-	            <li class="breadcrumb-item"><a href="<?php echo site_url('welcome'); ?>">Inicio</a></li>
-	            <li class="breadcrumb-item"><a href="<?php echo site_url('usuario'); ?>">Lista Usuarios</a></li>
+	            <li class="breadcrumb-item"><a href="<?php echo base_url().'welcome'; ?>">Inicio</a></li>
+	            <li class="breadcrumb-item"><a href="<?php echo base_url().'usuario'; ?>">Lista Usuarios</a></li>
 	            <li class="breadcrumb-item active" aria-current="page">Modificar Usuario</li>
             </ol>
       </nav>
@@ -93,7 +93,7 @@
                     <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Foto</label>
                       <div class="input-group col-sm-6">
-                        <input type="text" class="form-control" name="foto1" value="<?php echo $usuario['foto'];?>">
+                        <input type="hidden" class="form-control" name="foto1" value="<?php echo $usuario['foto'];?>">
                         <input type="file" class="form-control-file" name="archivo" id="archivo">
                       </div>
                     </div>

@@ -7,7 +7,7 @@
 		</div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?php echo site_url('welcome'); ?>">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url().'welcome'; ?>">Inicio</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Lista Usuarios</li>
             </ol>
         </nav>
