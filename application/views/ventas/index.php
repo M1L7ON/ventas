@@ -60,7 +60,6 @@
                                 <?php 
                                 }
                                 ?>
-                                    
                             </td>
                             <td>
                                 <span class="pull-right">
