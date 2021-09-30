@@ -130,7 +130,7 @@ class Producto extends CI_Controller{
     {
       	$this->load->library('form_validation');
         $this->form_validation->set_rules('codigo','Código','max_length[15]|alpha_numeric');
-		$this->form_validation->set_rules('nombre','Nombre','required|max_length[45]|callback_alpha_space');
+		$this->form_validation->set_rules('nombre','Nombre','required|max_length[45]');
         $this->form_validation->set_rules('stock','Stock','max_length[7]|numeric');
         $this->form_validation->set_rules('descuento','Descuento','max_length[7]|numeric');
         $this->form_validation->set_rules('descripcion','Descripción','max_length[250]');
@@ -204,10 +204,10 @@ class Producto extends CI_Controller{
         $this->pdf->Output("listaproductos.pdf","I");
     }
 
-    public function alpha_space($str)
+    public function alphaSpace($str)
     {
 
-        if (preg_match('/^[A-Záéíóú ]+$/i', $str))
+        if (preg_match('/^[A-Za-záéíóú ]+$/i', $str))
         {
             return TRUE;
         }
