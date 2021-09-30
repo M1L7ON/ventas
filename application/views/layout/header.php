@@ -70,7 +70,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index-2.html">
+            <a class="nav-link" href="<?php base_url();?>welcome">
               <i class="fa fa-home menu-icon"></i>
               <span class="menu-title">Inicio</span>
             </a>
