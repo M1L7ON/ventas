@@ -1,7 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Clase Ventas
+ *
+ * @autor Oscar Lopez
+ * @version 1.0
+ */
 class Ventas extends CI_Controller{
+
+    /**
+     * Ventas constructor.
+     */
     function __construct()
     {
         parent::__construct();
@@ -12,6 +22,9 @@ class Ventas extends CI_Controller{
         require_once  APPPATH.'controllers/PDF_MC_Table.php';
     } 
 
+    /**
+     * Index inicia la vista header index y footer para Ventas.
+     */
     function index()
     {
         $data['ventas'] = $this->Ventas_model->getAllVentas();
@@ -21,6 +34,9 @@ class Ventas extends CI_Controller{
         $this->load->view('layout/footer');
     }
 
+     /**
+     * Insert inicia la vista header add y footer para Ventas.
+     */
     function insert()
     {
     	$data['cliente'] = $this->Cliente_model->getAllCliente();
@@ -31,14 +47,10 @@ class Ventas extends CI_Controller{
         $this->load->view('layout/footer');
     }
 
-    function editar($idcliente)
-    {
-    	$data['cliente'] = $this->Ventas_model->getCliente($idcliente);
-    	$this->load->view('layout/header');
-        $this->load->view('Ventas/edit',$data);
-        $this->load->view('layout/footer');
-    }
-
+    
+    /**
+     * Insert inicia la vista header add y footer para Ventas.
+     */
     function reporteFechas()
     {
         $this->load->view('layout/header');
